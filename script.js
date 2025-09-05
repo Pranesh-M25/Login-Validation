@@ -6,8 +6,10 @@ const cpassword = document.querySelector("#cpassword")
 let success = true
 
 form.addEventListener('submit', e => {
-  e.preventDefault()
-  validateInputs();
+
+  if(!validateInputs()){
+      e.preventDefault()
+  };
 })
 
 function validateInputs(){
@@ -54,6 +56,7 @@ function validateInputs(){
   } else {
     setSuccess(cpassword)
   }
+  return success;
 }
 
 function setError(element,message){
